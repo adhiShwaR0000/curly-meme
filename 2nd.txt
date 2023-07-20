@@ -1,1 +1,5 @@
+<<<<<<< HEAD
 echo "hello world"
+=======
+echo "boss"
+>>>>>>> 0218fbcfc38a87fd78f641eb124f68be6543e0be
