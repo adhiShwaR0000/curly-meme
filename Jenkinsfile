@@ -16,9 +16,8 @@ pipeline {
                 echo 'Testing if file exists'
                 sh 'rm file.txt'
                 sh 'ls -l file.txt || echo "failed"'
-                echo 'Unstashing to paste the stashed file'
                 //unstash → restore file in another stage
-                unstash 'myfile'
+                //unstash 'myfile'
                 //It will not fail bcoz of unstash as it will paste the file
                 sh 'test -f file.txt'
                 sleep 4
