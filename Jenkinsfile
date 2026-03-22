@@ -4,18 +4,19 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                echo 'Building'
-                sleep 10
+                sh 'echo "This line is build in building stage" > file.txt'
             }
         }
         stage('Test') {
             steps {
-                echo 'Testing'
+                echo 'Testing if file exists'
+                sh 'ls -l file.txt'
+                sleep 4
             }
         }
         stage('Deploy') {
             steps {
-                echo 'Hello World'
+                sh 'cat file.txt'
             }
         }
 
