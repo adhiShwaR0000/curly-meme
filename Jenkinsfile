@@ -17,7 +17,7 @@ pipeline {
                 sh 'rm file.txt'
                 sh 'ls -l file.txt || echo "failed"'
                 //unstash → restore file in another stage
-                //unstash 'myfile'
+                unstash 'myfile'
                 //It will not fail bcoz of unstash as it will paste the file
                 sh 'test -f file.txt'
                 sleep 4
