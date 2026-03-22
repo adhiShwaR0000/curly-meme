@@ -12,7 +12,7 @@ pipeline {
             steps {
                 echo 'Testing if file exists'
                 sh 'rm file.txt'
-                sh 'ls -l file.txt || failed'
+                sh 'ls -l file.txt || echo "failed"'
                 echo 'Unstashing to paste the stashed file'
                 unstash 'myfile'
                 sh 'test -f file.txt'
