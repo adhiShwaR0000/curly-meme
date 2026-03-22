@@ -11,6 +11,7 @@ pipeline {
             steps {
                 echo 'Testing if file exists'
                 sh 'ls -l file.txt'
+                sh 'test -f file.txt'
                 sleep 4
             }
         }
