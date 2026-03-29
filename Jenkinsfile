@@ -15,8 +15,8 @@ pipeline {
             agent { label 'node1'}
             steps {
                 echo 'Testing if file exists'
-                script (if fileExists('file.txt')){        // This is script in groovy
-                    sh 'rm -f file.txt' }                  // Due to -f it will find b4 deleting and not throw error
+                script { if (fileExists('file.txt')){        // This is script in groovy
+                    sh 'rm -f file.txt' } }                 // Due to -f it will find b4 deleting and not throw error
                 sh 'ls -l file.txt || echo "failed"'
                 //unstash → restore file in another stage
                 unstash 'myfile'
