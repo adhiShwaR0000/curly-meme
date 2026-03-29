@@ -1,7 +1,8 @@
 pipeline {
-    agent any
+    agent none
     stages {
         stage('Build') {
+            agent any
             steps {
                 sh 'echo "This line is build in building stage" > file.txt'
                 //stash → save file inside Jenkins
@@ -11,6 +12,7 @@ pipeline {
             }
         }
         stage('Test') {
+            agent { label 'node1'}
             steps {
                 echo 'Testing if file exists'
                 sh 'rm file.txt'
@@ -23,6 +25,7 @@ pipeline {
             }
         }
         stage('Deploy') {
+            agent any
             steps {
                 sh 'cat file.txt'
             }
